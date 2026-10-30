@@ -1,0 +1,8 @@
+% adb, adb
+adb shell
+
+% push-camApp, adb
+adb push cameraApp /customer/bin/
+
+% adb-pull, adb
+adb pull /udisk/ .

@@ -1,0 +1,9 @@
+% pullCamApp, windows, rsync
+D:\app\install\rsync-win\rsync-win.exe --src gaocong@192.168.59.81:/home/shared/gaocong/3201/hollyos-sdk/build/bin/cameraApp --dest .
+
+% push-test.bin, windows, adb
+cd Z:\temp
+adb push test.bin /udisk
+
+% rsync, windows, rsync
+rsync-win.exe --src gaocong@192.168.59.81: --dest .

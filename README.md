@@ -7,6 +7,7 @@
 | `ghostty/` | `~/.config/ghostty/` | Ghostty 终端配置（`config` 为主配置，`config.ghostty` 为备用副本） |
 | `yazi/` | `~/.config/yazi/` | Yazi 文件管理器（`yazi.toml` 行为配置、`theme.toml` 主题、`init.lua` 启用 zoxide 自动记录） |
 | `fish/` | `~/.config/fish/` | Fish shell（`config.fish`、`conf.d/`、`functions/`、`completions/`） |
+| `snippets/` | `~/.config/snippets/` | 快捷指令库（navi 格式 `.cheat` 文件）与 `list.awk` 解析脚本 |
 | `tabby/` | `~/.config/tabby/` | Tabby 终端（仅 `config.yaml`） |
 
 未包含：Tabby 的插件目录 `plugins/`（含 `node_modules`）与缓存目录、fish 的 `fish_variables`（机器运行时生成）。
@@ -17,6 +18,7 @@
 cp -a ghostty/.  ~/.config/ghostty/
 cp -a yazi/.     ~/.config/yazi/
 cp -a fish/.     ~/.config/fish/
+cp -a snippets/. ~/.config/snippets/
 cp -a tabby/.    ~/.config/tabby/
 ```
 
@@ -25,3 +27,4 @@ cp -a tabby/.    ~/.config/tabby/
 - Yazi 需先安装 `yazi`/`ya`（如放在 `~/.local/bin`），以及 `7zip`、`fd-find`、`ffmpeg`、`jq`、`poppler-utils`、`ripgrep`、`fzf` 等依赖；`yazi.toml` 中的打开方式已适配 Linux（`xdg-open`）。
 - 终端字体 Maple Mono NF CN 需单独安装。
 - fish 的 `y` 函数（`functions/y.fish`）封装 yazi，退出后自动 cd 到最后浏览的目录。
+- 快捷指令面板：fish 函数 `qc`（`functions/qc.fish`）+ `conf.d/qc.fish` 绑定 Ctrl+G；依赖 `fzf` 与 `awk`，从 `~/.config/snippets/*.cheat` 读取。Enter 插入命令行、Ctrl+E 直接执行、Esc 取消。`.cheat` 为 navi 格式（`% 名称, 标签` 开头），可直接用 navi 兼容。

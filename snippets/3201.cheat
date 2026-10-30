@@ -1,0 +1,24 @@
+% 3201打包, 3201, 构建
+h update -s
+cd ~/3201/
+cd ~/3201/source/project/
+git checkout .
+cd ~/3201/source/sdk/
+git checkout .
+repo sync
+h docker shell sigmastar
+h lunch 1
+h make all
+h make pack
+
+% hlsdk 同步, 3201, 构建
+cd ~/temp/hollyos-sdk/
+cd hollyos-sdk/
+git fetch
+git checkout .
+git log dev..origin/dev --pretty=oneline > 1.log
+git pull
+find . -name "*.a" -delete
+cd ~/temp/
+tar czvf hollyos-sdk.tar.gz --exclude=.git hollyos-sdk/
+mv hollyos-sdk.tar.gz test.bin

@@ -1,0 +1,50 @@
+% appsh, 设备
+mv /customer/bin/app.sh /customer/bin/app.sh2
+killall ash
+killall cameraApp
+
+% unAppsh, 设备
+mv /customer/bin/app.sh2 /customer/bin/app.sh
+
+% startCameraApp, 设备
+killall cameraApp
+chmod +x /customer/bin/sigClient
+chmod +x /customer/bin/cameraApp
+cameraApp &
+
+% sigClient, 设备
+sigClient ws://127.0.0.1:8080 1
+
+% swap gdb, 设备, swap
+dd if=/dev/zero of=/customer/swapfile bs=1M count=512
+chmod 600 /customer/swapfile
+mkswap /customer/swapfile
+swapon /customer/swapfile
+
+% use_adb, 设备, adb
+composite -all
+composite +adb
+touch /udisk/usb_switch_none
+touch /udisk/usb_switch_adb
+eeprom_getset /dev/eeprom uart_debug true
+sync
+
+% remove_3201_log, 设备
+rm -rf /userdata/logs/
+
+% 3201蓝牙, 设备
+eeprom_getset /dev/eeprom product_sn
+
+% 3201-version, 设备
+cat /customer/etc/version.txt
+uart_host --cmd-version-2610
+
+% cat-3201-version, 设备
+cat customer/etc/version.txt
+uart_host --cmd-version-2610
+
+% net-cat, 设备, 网络
+netstat -lntup
+
+% httpd, 设备, 网络
+httpd -p 2026 -h /udisk/
