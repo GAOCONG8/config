@@ -1,0 +1,160 @@
+# ============================================
+# Ghostty 终端 - 完整配置（含中文注释）
+# ============================================
+
+# ================= 字体与排版 =================
+# 字体名称（需系统已安装该字体）
+font-family = "Maple Mono NF CN"
+
+# 字号大小（单位：磅）
+font-size = 11
+
+# 是否加粗字体（对细字体有效）
+font-thicken = true
+
+# 调整行高（正值增加行间距）
+adjust-cell-height = 6
+
+# ================= 主题与颜色 =================
+# 使用内置主题（Kanagawa Wave 为经典日式配色）
+theme = Kanagawa Wave
+
+# ================= 窗口与外观 =================
+# 窗口背景不透明度（1 = 完全不透明）
+background-opacity = 1
+
+# macOS 标题栏样式（透明）
+macos-titlebar-style = transparent
+
+# 窗口内边距（左右）
+window-padding-x = 14
+
+# 窗口内边距（上下）
+window-padding-y = 10
+
+# 是否保存并恢复窗口大小和位置
+# never   - 每次启动使用默认窗口大小，不记忆上次状态
+# always  - 记住上次关闭时的窗口大小和位置，下次启动自动恢复
+# default - 跟随系统默认行为
+window-save-state = always
+
+# 默认窗口列数
+window-width = 80
+
+# 默认窗口行数
+window-height = 24
+
+# 窗口主题跟随系统（auto / light / dark）
+window-theme = auto
+
+# ================= 光标 =================
+# 光标样式（bar = 竖线，也可选 block / underline）
+cursor-style = bar
+
+# 光标是否闪烁
+cursor-style-blink = true
+
+# ================= 鼠标 =================
+# 输入时自动隐藏鼠标
+mouse-hide-while-typing = true
+
+# 选中即复制（both = 鼠标 + 键盘选择都复制）
+copy-on-select = both
+
+# ================= 快速终端（Quake 风格下拉终端） =================
+# 快速终端出现位置（top / bottom）
+quick-terminal-position = top
+
+# 快速终端显示在哪个屏幕（mouse = 鼠标所在屏幕）
+quick-terminal-screen = mouse
+
+# 失去焦点后自动隐藏
+quick-terminal-autohide = true
+
+# 动画持续时间（秒）
+quick-terminal-animation-duration = 0.15
+
+# ================= 关闭行为 =================
+# 关闭窗口/标签页前是否确认
+confirm-close-surface = false
+
+# ================= 安全 =================
+# 粘贴时是否进行安全检测（防止命令注入）
+clipboard-paste-protection = true
+
+# 使用 bracketed paste 模式安全粘贴
+clipboard-paste-bracketed-safe = true
+
+# ================= Shell 集成 =================
+# 自动检测并启用 shell 集成
+shell-integration = detect
+
+# 启用的 shell 集成功能
+# cursor      - 光标恢复
+# sudo        - sudo 提示
+# no-title    - 不修改窗口标题
+# ssh-env     - SSH 环境同步
+# ssh-terminfo- SSH terminfo 同步
+# path        - PATH 同步
+shell-integration-features = cursor,sudo,no-title,ssh-env,ssh-terminfo,path
+
+# ================= 快捷键 =================
+
+# --- 标签页 ---
+# 切换到上一个标签页
+keybind = alt+left=previous_tab
+
+# 切换到下一个标签页
+keybind = alt+right=next_tab
+
+# --- 分屏 ---
+# 向右新建分屏（Ctrl + V，竖分割）
+keybind = ctrl+v=new_split:right
+
+# 向下新建分屏（Ctrl + -，横分割）
+keybind = ctrl+minus=new_split:down
+
+# 关闭当前分屏（Ctrl + W）
+keybind = ctrl+w=close_surface
+
+# 在分屏之间移动焦点（Alt + HJKL）
+keybind = alt+h=goto_split:left
+keybind = alt+l=goto_split:right
+keybind = alt+k=goto_split:top
+keybind = alt+j=goto_split:bottom
+
+# --- 字体大小 ---
+# 增大字体（Ctrl + Shift + +）
+keybind = ctrl+shift+plus=increase_font_size:1
+
+# 减小字体（Ctrl + Shift + -）
+keybind = ctrl+shift+minus=decrease_font_size:1
+
+# 重置字体大小（Ctrl + Shift + 0）
+keybind = ctrl+shift+zero=reset_font_size
+
+# --- 快速终端 ---
+# 全局快捷键：Cmd + T 切换快速终端
+keybind = global:cmd+t=toggle_quick_terminal
+
+# --- 分屏管理 ---
+# 等分所有分屏（Alt + E）
+keybind = alt+e=equalize_splits
+
+# 放大/还原当前分屏（Alt + Z，类似 tmux resize-z）
+keybind = alt+z=toggle_split_zoom
+
+# --- 滚动 ---
+# Cmd+↑ 滚动到顶部
+keybind = ctrl+arrow_up=scroll_to_top
+
+# Cmd+↓ 滚动到底部
+keybind = ctrl+arrow_down=scroll_to_bottom
+
+# --- 配置 ---
+# 重新加载配置文件
+keybind = ctrl+shift+comma=reload_config
+
+# ================= 性能 =================
+# 回滚缓冲区最大字节数（约 25MB）
+scrollback-limit-bytes = 25000000

@@ -1,0 +1,499 @@
+version: 8
+profiles:
+  - type: ssh
+    icon: fas fa-desktop
+    options:
+      host: 192.168.59.81
+      user: gaocong
+      algorithms:
+        hmac:
+          - hmac-sha1
+          - hmac-sha1-etm@openssh.com
+          - hmac-sha2-256
+          - hmac-sha2-256-etm@openssh.com
+          - hmac-sha2-512
+          - hmac-sha2-512-etm@openssh.com
+        kex:
+          - curve25519-sha256
+          - curve25519-sha256@libssh.org
+          - diffie-hellman-group14-sha256
+          - diffie-hellman-group16-sha512
+          - ext-info-c
+          - ext-info-s
+          - kex-strict-c-v00@openssh.com
+          - kex-strict-s-v00@openssh.com
+          - mlkem768x25519-sha256
+        cipher:
+          - aes128-ctr
+          - aes192-ctr
+          - aes256-ctr
+          - aes256-gcm@openssh.com
+          - chacha20-poly1305@openssh.com
+        serverHostKey:
+          - ecdsa-sha2-nistp256
+          - ecdsa-sha2-nistp521
+          - rsa-sha2-256
+          - rsa-sha2-512
+          - ssh-ed25519
+          - ssh-rsa
+        compression:
+          - none
+      input: {}
+      auth: password
+      forwardedPorts: []
+      scripts: []
+      privateKeys: []
+    weight: -1
+    name: 编译服务器81
+    id: ssh:custom:81:0c03033e-55ff-4f45-8611-a8b577bca543
+  - type: serial
+    name: COM6 2610
+    icon: fas fa-microchip
+    options:
+      port: COM6
+      input: {}
+      baudrate: '921600'
+    id: serial:custom:COM6-2610:911751b3-c783-4f19-ae22-d405f5a90339
+  - type: serial
+    name: COM6 309
+    icon: fas fa-microchip
+    options:
+      port: COM6
+      input: {}
+      baudrate: 115200
+      scripts: []
+    id: serial:custom:COM6-309:d1e30052-9808-4ee3-8680-cb033631c3e0
+  - type: serial
+    name: 串口：新命令模式
+    options:
+      port: /dev/ttyUSB0
+      baudrate: 921600
+      inputNewlines: crlf
+      outputNewlines: implicit_cr
+      input: {}
+      scripts: []
+    id: serial:custom::3c3d722c-6f97-4012-8e9b-92fed0559767
+    icon: fas fa-microchip
+  - type: serial
+    name: 串口：新命令模式 副本
+    options:
+      port: /dev/ttyUSB1
+      baudrate: 921600
+      inputNewlines: crlf
+      outputNewlines: implicit_cr
+      input: {}
+      scripts: []
+    icon: fas fa-microchip
+    id: serial:custom::41f53b72-85bd-47b6-9bcd-c7ac979e5d82
+groups: []
+configSync:
+  parts: {}
+hotkeys:
+  copy-current-path: []
+  ctrl-c:
+    - Ctrl-C
+  copy:
+    - Ctrl-Shift-C
+  paste:
+    - Ctrl-Shift-V
+    - Shift-Insert
+  select-all:
+    - Ctrl-Shift-A
+  clear:
+    - Alt-R
+  zoom-in:
+    - Ctrl-=
+    - Ctrl-Shift-=
+  zoom-out:
+    - Ctrl--
+    - Ctrl-Shift--
+  reset-zoom:
+    - Ctrl-0
+  home:
+    - Home
+  end:
+    - End
+  previous-word:
+    - Ctrl-Left
+  next-word:
+    - Ctrl-Right
+  delete-previous-word:
+    - Ctrl-Backspace
+  delete-line:
+    - Ctrl-Shift-Backspace
+  delete-next-word:
+    - Ctrl-Delete
+  search:
+    - Ctrl-Shift-F
+  pane-focus-all:
+    - Ctrl-Shift-I
+  focus-all-tabs:
+    - Ctrl-Alt-Shift-I
+  scroll-to-top:
+    - Ctrl-PageUp
+  scroll-page-up:
+    - Alt-PageUp
+  scroll-up: []
+  scroll-down: []
+  scroll-page-down:
+    - Alt-PageDown
+  scroll-to-bottom:
+    - Ctrl-PageDown
+  restart-telnet-session: []
+  restart-ssh-session: []
+  launch-winscp: []
+  settings-tab:
+    profiles: []
+    qc: []
+  settings:
+    - Ctrl-,
+  serial:
+    - Alt-K
+  restart-serial-session: []
+  new-tab:
+    - Ctrl-Shift-T
+  new-window:
+    - Ctrl-Shift-N
+  profile: {}
+  profile-selectors: {}
+  group-selectors: {}
+  toggle-fullscreen:
+    - Alt-Enter
+    - F11
+  close-tab:
+    - Ctrl-Shift-W
+  reopen-tab:
+    - Ctrl-Shift-Z
+  toggle-last-tab: []
+  rename-tab:
+    - F2
+  next-tab:
+    - Ctrl-Shift-Down
+  previous-tab:
+    - Ctrl-Shift-Up
+  move-tab-left:
+    - Ctrl-Shift-PageUp
+    - Ctrl-Shift-Left
+  move-tab-right:
+    - Ctrl-Shift-PageDown
+    - Ctrl-Shift-Right
+  rearrange-panes:
+    - Ctrl-Shift
+  duplicate-tab: []
+  restart-tab: []
+  reconnect-tab:
+    - Ctrl-Shift-R
+  disconnect-tab: []
+  explode-tab:
+    - Ctrl-Shift-.
+  combine-tabs:
+    - Ctrl-Shift-,
+  tab-1:
+    - Alt-1
+  tab-2:
+    - Alt-2
+  tab-3:
+    - Alt-3
+  tab-4:
+    - Alt-4
+  tab-5:
+    - Alt-5
+  tab-6:
+    - Alt-6
+  tab-7:
+    - Alt-7
+  tab-8:
+    - Alt-8
+  tab-9:
+    - Alt-9
+  tab-10:
+    - Alt-0
+  tab-11: []
+  tab-12: []
+  tab-13: []
+  tab-14: []
+  tab-15: []
+  tab-16: []
+  tab-17: []
+  tab-18: []
+  tab-19: []
+  tab-20: []
+  split-right:
+    - Alt-S-Right
+  split-bottom:
+    - Alt-S-Down
+  split-top: []
+  pane-nav-right:
+    - Alt-Right
+  pane-nav-down:
+    - Alt-Down
+  pane-nav-up:
+    - Alt-Up
+  pane-nav-left:
+    - Alt-Left
+  pane-nav-previous:
+    - Ctrl-Alt-[
+  pane-nav-next:
+    - Ctrl-Alt-]
+  pane-nav-1: []
+  pane-nav-2: []
+  pane-nav-3: []
+  pane-nav-4: []
+  pane-nav-5: []
+  pane-nav-6: []
+  pane-nav-7: []
+  pane-nav-8: []
+  pane-nav-9: []
+  pane-maximize:
+    - Ctrl-Alt-Enter
+  close-pane:
+    - Ctrl-W
+  pane-increase-vertical: []
+  pane-decrease-vertical: []
+  pane-increase-horizontal: []
+  pane-decrease-horizontal: []
+  switch-profile:
+    - Ctrl-Alt-T
+  profile-selector:
+    - Ctrl-T
+  command-selector:
+    - Ctrl-Shift-P
+  split-left: []
+  qc:
+    - Alt-Q
+  toggle-window:
+    - Alt-F11
+  open-sftp: []
+terminal:
+  searchOptions: {}
+  colorScheme:
+    name: Tabby Default
+    foreground: '#cacaca'
+    background: '#171717'
+    cursor: '#bbbbbb'
+    colors:
+      - '#000000'
+      - '#ff615a'
+      - '#b1e969'
+      - '#ebd99c'
+      - '#5da9f6'
+      - '#e86aff'
+      - '#82fff7'
+      - '#dedacf'
+      - '#313131'
+      - '#f58c80'
+      - '#ddf88f'
+      - '#eee5b2'
+      - '#a5c7ff'
+      - '#ddaaff'
+      - '#b7fff9'
+      - '#ffffff'
+  lightColorScheme:
+    name: Arthur
+    foreground: '#ddeedd'
+    background: '#1c1c1c'
+    cursor: '#e2bbef'
+    colors:
+      - '#3d352a'
+      - '#cd5c5c'
+      - '#86af80'
+      - '#e8ae5b'
+      - '#6495ed'
+      - '#deb887'
+      - '#b0c4de'
+      - '#bbaa99'
+      - '#554444'
+      - '#cc5533'
+      - '#88aa22'
+      - '#ffa75d'
+      - '#87ceeb'
+      - '#996600'
+      - '#b0c4de'
+      - '#ddccbb'
+  customColorSchemes: []
+  profile: local:default
+  copyOnSelect: false
+  autoOpen: false
+  paneResizeStep: 0.15
+  font: JetBrainsMono Nerd Font
+ssh:
+  knownHosts:
+    - host: 192.168.59.81
+      port: 22
+      type: ecdsa-sha2-nistp256
+      digest: ZDN7K/0SzbCVzOI7E3HCGO3+YmxbzHwwqsRR/Q86sR4=
+clickableLinks:
+  modifier: ctrlKey
+accessibility: {}
+appearance:
+  opacity: 0.4
+hacks: {}
+providerBlacklist: []
+commandBlacklist: []
+language: zh-CN
+enableAnalytics: false
+enableWelcomeTab: false
+pluginBlacklist: []
+profileDefaults:
+  ssh:
+    disableDynamicTitle: true
+profileBlacklist: []
+qc:
+  cmds:
+    - name: appsh
+      text: |
+        mv /customer/bin/app.sh /customer/bin/app.sh2
+        killall ash
+        killall cameraApp
+      appendCR: true
+      profileIds: []
+      group: ''
+    - name: push-camApp
+      text: adb push cameraApp /customer/bin/
+      appendCR: true
+      profileIds: []
+      group: ''
+    - name: adb
+      text: adb shell
+      appendCR: true
+      profileIds: []
+      group: ''
+    - name: sigClient
+      text: sigClient ws://127.0.0.1:8080 1
+      appendCR: false
+      profileIds: []
+      group: ''
+    - name: startCameraApp
+      text: |
+        killall cameraApp
+        chmod +x /customer/bin/sigClient
+        chmod +x /customer/bin/cameraApp
+        cameraApp &
+      appendCR: true
+      profileIds: []
+      group: ''
+    - name: swap gdb
+      text: |-
+        dd if=/dev/zero of=/customer/swapfile bs=1M count=512
+
+        chmod 600 /customer/swapfile
+        mkswap /customer/swapfile
+        swapon /customer/swapfile
+      appendCR: true
+      profileIds: []
+      group: ''
+    - name: 3201打包
+      text: |
+        h update -s
+        cd ~/3201/
+        cd ~/3201/source/project/
+        git checkout .
+        cd ~/3201/source/sdk/
+        git checkout .
+        repo sync
+        h docker shell sigmastar
+        h lunch 1
+        h make all
+
+        h make pack 
+      appendCR: true
+      profileIds: []
+      group: ''
+    - name: adb-pull
+      text: adb pull /udisk/ .
+      appendCR: false
+      profileIds: []
+      group: ''
+    - name: hlsdk 同步
+      text: |-
+        cd ~/temp/hollyos-sdk/
+        cd hollyos-sdk/
+        git fetch 
+        git checkout .
+        git log dev..origin/dev --pretty=oneline > 1.log
+        git pull
+        find . -name "*.a" -delete
+        cd ~/temp/
+        tar czvf hollyos-sdk.tar.gz --exclude=.git hollyos-sdk/
+        mv hollyos-sdk.tar.gz test.bin  
+      appendCR: true
+      profileIds: []
+      group: ''
+    - name: 3201蓝牙
+      text: |
+        eeprom_getset /dev/eeprom product_sn
+      appendCR: true
+      profileIds: []
+      group: ''
+    - name: pullCamApp
+      text: >
+        D:\app\install\rsync-win\rsync-win.exe --src
+        gaocong@192.168.59.81:/home/shared/gaocong/3201/hollyos-sdk/build/bin/cameraApp
+        --dest .
+      appendCR: true
+      profileIds: []
+      group: ''
+    - name: push-test.bin
+      text: |-
+        cd Z:\temp
+        adb push test.bin /udisk
+      appendCR: true
+      profileIds: []
+      group: ''
+    - name: use_adb
+      text: |-
+        composite -all
+        composite +adb
+        touch  /udisk/usb_switch_none
+        touch  /udisk/usb_switch_adb
+        eeprom_getset /dev/eeprom uart_debug true
+        sync
+      appendCR: true
+      profileIds: []
+      group: ''
+    - name: net-cat
+      text: netstat -lntup
+      appendCR: true
+      profileIds: []
+      group: ''
+    - name: cat-3201-version
+      text: |
+        cat customer/etc/version.txt
+
+        uart_host --cmd-version-2610
+      appendCR: true
+      profileIds: []
+      group: ''
+    - name: httpd
+      text: |
+        httpd -p 2026 -h /udisk/
+      appendCR: true
+      profileIds: []
+      group: ''
+    - name: 3201-version
+      text: |+
+        cat /customer/etc/version.txt
+        uart_host --cmd-version-2610
+
+      appendCR: true
+      profileIds: []
+      group: ''
+    - name: rsync
+      text: 'rsync-win.exe --src gaocong@192.168.59.81: --dest .'
+      appendCR: false
+      profileIds: []
+      group: ''
+    - name: unAppsh
+      text: |
+        mv /customer/bin/app.sh2 /customer/bin/app.sh
+      appendCR: true
+      profileIds: []
+      group: ''
+    - name: remove_3201_log
+      text: rm -rf /userdata/logs/
+      appendCR: true
+      profileIds: []
+      group: ''
+  groups: []
+enableAutomaticUpdates: false
+serialTimestampPlugin: {}
