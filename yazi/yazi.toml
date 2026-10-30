@@ -1,35 +1,76 @@
+# ============================================
+# Yazi 文件管理器配置（含中文注释）
+# 修改后重启 yazi 生效
+# ============================================
+
+# ================= 管理器界面 =================
 [mgr]
+# 三栏宽度比例：父目录 / 当前目录 / 预览
 ratio = [1, 2, 5]
+
+# 排序方式：natural 表示自然顺序（file2 排在 file10 前）
 sort_by = "natural"
+
+# 排序是否区分大小写
 sort_sensitive = false
+
+# 是否倒序排列
 sort_reverse = false
+
+# 目录是否排在文件前面
 sort_dir_first = true
+
+# 每行显示的信息：size（文件大小），可选 none/ctime/mtime/permissions/owner
 linemode = "size"
+
+# 是否显示隐藏文件（以 . 开头的文件）
 show_hidden = false
+
+# 是否显示符号链接指向的目标
 show_symlink = true
+
+# 光标距上下边缘至少保留的行数（滚动时）
 scrolloff = 5
+
+# 允许触发动作的鼠标事件
 mouse_events = ["click", "scroll"]
+
+# 终端窗口标题格式，{cwd} 为当前目录
 title_format = "Yazi: {cwd}"
 
+# ================= 预览 =================
 [preview]
+# 图片预览的最大宽高（像素）
 max_width = 600
 max_height = 900
+
+# 图片缩放算法（lanczos3 质量较高、速度较慢）
 image_filter = "lanczos3"
+
+# 图片预览质量（1-100）
 image_quality = 75
 
+# ================= 打开方式 =================
 [opener]
+# 编辑：交给 VSCode；for = "unix" 表示 Linux/macOS 通用
 edit = [
   { run = 'code %s', desc = "VSCode", for = "unix" },
 ]
+
+# 普通打开（Linux 用 xdg-open，macOS 用 open）
 open = [
   { run = 'xdg-open %s', desc = "Open", for = "linux" },
   { run = 'open %s', desc = "Open", for = "macos" },
 ]
+
+# 在文件管理器中定位：%d 为父目录，%1 为第一个选中项
 reveal = [
   { run = 'xdg-open %d', desc = "Reveal (open parent dir)", for = "linux" },
   { run = 'open -R %1', desc = "Reveal in Finder", for = "macos" },
 ]
 
+# 按 MIME 类型追加打开方式（优先级高于默认规则）
+# 这里让源码/文本类文件优先用 VSCode 编辑，其次系统默认打开，最后定位
 [open]
 prepend_rules = [
   { mime = "text/*", use = ["edit", "open", "reveal"] },
@@ -39,12 +80,20 @@ prepend_rules = [
   { mime = "*/x-yaml", use = ["edit", "open", "reveal"] },
 ]
 
+# ================= 任务并发 =================
 [tasks]
+# 微型任务（如计算文件大小）并发数
 micro_workers = 10
+
+# 宏任务（如复制/移动/删除）并发数
 macro_workers = 25
+
+# 遇到诡异错误时的重试次数
 bizarre_retry = 5
 
+# ================= 插件 =================
 [plugin]
+# 前置 fetcher：在文件列表上显示 git 状态（url = "*" 表示对所有路径生效）
 prepend_fetchers = [
   { id = "git", url = "*", run = "git", prio = "normal", group = "git" },
 ]
