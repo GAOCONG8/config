@@ -5,7 +5,7 @@
 | 目录 | 原路径 | 内容 |
 | --- | --- | --- |
 | `ghostty/` | `~/.config/ghostty/` | Ghostty 终端配置（`config` 为主配置，`config.ghostty` 为备用副本） |
-| `yazi/` | `~/.config/yazi/` | Yazi 文件管理器（`yazi.toml` 行为配置、`theme.toml` 主题） |
+| `yazi/` | `~/.config/yazi/` | Yazi 文件管理器（`yazi.toml` 行为配置、`theme.toml` 主题、`init.lua` 启用 zoxide 自动记录） |
 | `fish/` | `~/.config/fish/` | Fish shell（`config.fish`、`conf.d/`、`functions/`、`completions/`） |
 | `tabby/` | `~/.config/tabby/` | Tabby 终端（仅 `config.yaml`） |
 
