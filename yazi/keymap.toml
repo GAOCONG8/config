@@ -1,0 +1,18 @@
+# ============================================
+# Yazi 快捷键配置
+# 修改后重启 yazi 生效
+# ============================================
+
+# 复制：同时写入 yazi 内部剪贴板与系统剪贴板
+# 用法：空格多选文件后按 y，再到钉钉/微信中 Ctrl+V
+[[mgr.prepend_keymap]]
+on   = "y"
+run  = [ "yank", "plugin clipboard -- --action=copy" ]
+desc = "复制到系统剪贴板"
+
+# 粘贴：把系统剪贴板中的文件复制到当前目录
+# 用于将钉钉/微信/文件管理器中复制的文件粘进 yazi
+[[mgr.prepend_keymap]]
+on   = "<C-p>"
+run  = [ "plugin clipboard -- --action=paste" ]
+desc = "从系统剪贴板粘贴文件"

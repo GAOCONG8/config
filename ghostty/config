@@ -38,6 +38,9 @@ window-padding-y = 10
 # default - 跟随系统默认行为
 window-save-state = always
 
+# 启动时窗口最大化（保留顶部菜单栏/面板）
+maximize = true
+
 # 默认窗口列数
 window-width = 80
 

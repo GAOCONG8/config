@@ -9,8 +9,9 @@
 | `fish/` | `~/.config/fish/` | Fish shell（`config.fish`、`conf.d/`、`functions/`、`completions/`） |
 | `snippets/` | `~/.config/snippets/` | 快捷指令库（navi 格式 `.cheat` 文件）与 `list.awk` 解析脚本 |
 | `tabby/` | `~/.config/tabby/` | Tabby 终端（仅 `config.yaml`） |
+| `herdr-app/` | `~/.config/herdr-app/keys.json` | Herdr 应用快捷键（`keys.json` 按 Ghostty 键位调整，已软链接到本仓库） |
 
-未包含：Tabby 的插件目录 `plugins/`（含 `node_modules`）与缓存目录、fish 的 `fish_variables`（机器运行时生成）。
+未包含：Tabby 的插件目录 `plugins/`（含 `node_modules`）与缓存目录、fish 的 `fish_variables`（机器运行时生成）。Herdr 仅备份 `keys.json`，`layouts/`、`mods/` 等其余文件为运行时或应用自带内容。
 
 ## 恢复
 
@@ -20,6 +21,7 @@ cp -a yazi/.     ~/.config/yazi/
 cp -a fish/.     ~/.config/fish/
 cp -a snippets/. ~/.config/snippets/
 cp -a tabby/.    ~/.config/tabby/
+mkdir -p ~/.config/herdr-app && ln -sf "$PWD/herdr-app/keys.json" ~/.config/herdr-app/keys.json
 ```
 
 ## 备注
@@ -28,3 +30,4 @@ cp -a tabby/.    ~/.config/tabby/
 - 终端字体 Maple Mono NF CN 需单独安装。
 - fish 的 `y` 函数（`functions/y.fish`）封装 yazi，退出后自动 cd 到最后浏览的目录。
 - 快捷指令面板：fish 函数 `qc`（`functions/qc.fish`）+ `conf.d/qc.fish` 绑定 Ctrl+G；依赖 `fzf` 与 `awk`，从 `~/.config/snippets/*.cheat` 读取。Enter 插入命令行、Ctrl+E 直接执行、Esc 取消。`.cheat` 为 navi 格式（`% 名称, 标签` 开头），可直接用 navi 兼容。
+- 终端通用键位约定见 [`terminal-keys.md`](terminal-keys.md)，各应用（Ghostty、Herdr）的落地配置见文档对应章节。
